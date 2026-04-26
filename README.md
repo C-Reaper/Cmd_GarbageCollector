@@ -1,193 +1,67 @@
-# Cmd_GarbageCollector
+# Project README
 
+## Overview
+This project is a simple implementation of a garbage collector in C. The primary focus is on managing memory allocation, deallocation, and sharing between different parts of the application.
 
-## Project Overview
+## Features
+- Memory Allocation (`GarbageCollector_Alloc`)
+- Memory Deallocation (`GarbageCollector_Free`)
+- Sharing Memory Between Owners (`GarbageCollector_Share`)
 
-This project implements specialized functionality related to garbagecollector.
-
-## Core Components
-
-### Main Functionality
-- Implements core algorithms for garbagecollector
-- Efficient data structures
-- Optimized performance
-- Clean code organization
-
-### Technical Features
-- C/C++ implementation
-- Dynamic memory management
-- Platform-independent design
-- Real-time capable
-
-### Architecture
-- Module separation
-- Clear interface design
-- Proper abstraction layers
-- Extensible design
-
-## Use Cases
-- Production systems
-- Educational purposes
-- Research applications
-- Performance-critical operations
-
-## Performance Characteristics
-- Optimized algorithms
-- Efficient memory usage
-- Scalable architecture
-- Minimal overhead
-
-## Implementation Quality
-- Well-organized code
-- Meaningful naming
-- Proper error handling
-- Memory management
-
-## Build and Deployment
-- Standard C/C++ compilation
-- Makefile-based building
-- Cross-platform support
-- Easy integration
-
-
-## Building the Project
+## Project Structure
 
 ### Prerequisites
-- C/C++ Compiler (GCC, Clang, or MSVC)
+- C/C++ Compiler (GCC, Clang)
 - Make utility
 - Standard development tools
 
-### Build Steps
+## Build & Run
+To build and run the project:
 
-1. Navigate to project directory:
-```bash
-cd Cmd_GarbageCollector
-```
+1. **Navigate to the project directory**:
+   ```sh
+   cd /home/codeleaded/Hecke/C/Cmd_GarbageCollector
+   ```
 
-2. Build the project:
-```bash
-make -f Makefile.(os) all
-```
+2. **Build the project for Linux** (assuming `gcc` is installed):
+   ```sh
+   make -f Makefile.linux all
+   ```
 
-3. For clean rebuild:
-```bash
-make -f Makefile.(os) clean
-make -f Makefile.(os) all
-```
+3. **Run the compiled program**:
+   ```sh
+   ./build/Main
+   ```
 
-4. If there are ./bin and ./libs directories, build libs with:
-```bash
-make -f Makefile.(os) cleanlib
-make -f Makefile.(os) lib
-```
+4. **Build and run for Windows** (assuming `gcc` is installed on a Linux system):
+   ```sh
+   make -f Makefile.windows all
+   ```
+   Then, you may need to use Wine to run the executable:
+   ```sh
+   WINEPREFIX=~/wine64 WINEARCH=win64 wine build/Main.exe
+   ```
 
-### Build Options
-```bash
-make -f Makefile.(os) all         # build output
-make -f Makefile.(os) do        # build + exe output
-make -f Makefile.(os) clean   # Remove build artifacts
-```
+5. **Build and run for Web Assembly** (assuming `clang` is installed):
+   ```sh
+   make -f Makefile.web all
+   ```
+   Then, you can use `wasmtime` to run the compiled WebAssembly file:
+   ```sh
+   wasmtime build/Main.wasm
+   ```
 
-## Running the Project
+6. **Clean up and rebuild**:
+   ```sh
+   make -f Makefile.linux clean
+   make -f Makefile.linux all
+   ```
 
-Execute the compiled binary:
-
-```bash
-./build/Main(.exe)
-```
-
-Or using make:
-```bash
-make -f Makefile.(os) exe
-```
-
-## Project Organization
-
-```
-Cmd_GarbageCollector/
-├── src/
-│   ├── Main.c          # Entry point
-│   └── *.c             # Implementation files
-├── Makefile            # Build configuration
-└── README.md           # This file
-```
-
-## Technical Details
-
-### Language: C/C++
-- Performance-oriented
-- Direct hardware access where needed
-- Memory efficient
-- Widely portable
-
-### Key Technologies
-- Standard C library
-- System-specific libraries as needed
-- Algorithm optimization
-- Efficient data structures
-
-### Code Quality
-- Clean, readable implementation
-- Proper error handling
-- Resource management
-- Well-documented algorithms
-
-## Development Notes
-
-### Architecture Decisions
-- Modular design for reusability
-- Efficient algorithms for performance
-- Clear separation of concerns
-- Extensible structure
-
-### Performance Optimizations
-- Algorithm efficiency
-- Memory layout optimization
-- Cache-conscious programming
-- Minimal overhead
-
-### Portability
-- Cross-platform compatible
-- Platform-specific optimizations where possible
-- Standard library usage
-- No external dependencies (where feasible)
-
-## Troubleshooting
-
-### Build Issues
-- Ensure compiler is installed
-- Check file paths and permissions
-- Verify Make installation
-- Review compiler error messages
-
-### Runtime Issues
-- Check input data validity
-- Verify file accessibility
-- Ensure sufficient memory
-- Review output format
-
-### Performance Issues
-- Check compiler optimization flags
-- Profile hot code paths
-- Review algorithm complexity
-- Consider input size
-
-## Future Improvements
-
-Potential enhancements:
-- Additional optimization opportunities
-- Extended functionality
-- Platform-specific optimizations
-- Performance profiling
-
-## References
-
-For technical background:
-- Algorithm textbooks
-- Computer science references
-- Language documentation
-- Online educational resources
-
----
-
-*Project implementing practical algorithms and data structures in C/C++*
+7. **Build with debugging symbols**:
+   ```sh
+   make -f Makefile.linux alldebug
+   ```
+   Then, use GDB to debug the program:
+   ```sh
+   gdb ./build/Main
+   ```
