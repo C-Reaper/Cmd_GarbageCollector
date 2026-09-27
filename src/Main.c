@@ -1,7 +1,6 @@
 #include "/home/codeleaded/System/Static/Library/GarbageCollector.h"
 
 int main() {
-
     GarbageCollector gc = GarbageCollector_New();
     GarbageCollector_Start(&gc);
 
@@ -34,7 +33,7 @@ int main() {
 
     Thread_Sleep_M(2000);
 
+    GarbageCollector_Print(&gc);
     GarbageCollector_Free(&gc);    
-
     return 0;
 }
